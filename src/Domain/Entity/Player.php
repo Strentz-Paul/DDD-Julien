@@ -56,9 +56,7 @@ class Player
     public function setTeam(Team $team): self
     {
         $this->team = $team;
-        if (!$team->getPlayers()->contains($this)) {
-            $team->addPlayer($this);
-        }
+        $team->addPlayer($this);
         return $this;
     }
 }

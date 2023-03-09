@@ -14,6 +14,10 @@ class Team
 
     private iterable $players;
 
+    private iterable $homeMatchGames;
+
+    private iterable $visitorMatchGames;
+
     public function __construct(Uuid $id, string $name)
     {
         $this->id = $id;
@@ -22,6 +26,8 @@ class Team
         }
         $this->name = $name;
         $this->players = new ArrayCollection();
+        $this->homeMatchGames = new ArrayCollection();
+        $this->visitorMatchGames = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -63,5 +69,21 @@ class Team
             $this->players->add($player);
         }
         return $this;
+    }
+
+    /**
+     * @return iterable
+     */
+    public function getHomeMatchGames(): iterable
+    {
+        return $this->homeMatchGames;
+    }
+
+    /**
+     * @return iterable
+     */
+    public function getVisitorMatchGames(): iterable
+    {
+        return $this->visitorMatchGames;
     }
 }

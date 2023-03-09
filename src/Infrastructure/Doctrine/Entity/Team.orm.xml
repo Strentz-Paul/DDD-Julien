@@ -9,5 +9,7 @@
         </id>
         <field name="name" column="name" type="string" length="255" nullable="false" unique="true"/>
         <one-to-many field="players" target-entity="App\Domain\Entity\Player" mapped-by="team" />
+        <one-to-many field="homeMatchGames" target-entity="App\Domain\Entity\MatchGame" mapped-by="homeTeam" />
+        <one-to-many field="visitorMatchGames" target-entity="App\Domain\Entity\MatchGame" mapped-by="visitorTeam" />
     </entity>
 </doctrine-mapping>
