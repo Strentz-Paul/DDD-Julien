@@ -31,4 +31,12 @@ class TeamRepository extends ServiceEntityRepository implements \App\Domain\Repo
     {
         return $this->findBy(array());
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function findOneByUuid(string $uuid): ?Team
+    {
+        return $this->findOneBy(array("id" => $uuid));
+    }
 }

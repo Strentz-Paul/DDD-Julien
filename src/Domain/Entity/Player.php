@@ -11,6 +11,8 @@ class Player
 
     private string $name;
 
+    private ?Team $team;
+
     /**
      * @throws ValidationException
      */
@@ -37,5 +39,26 @@ class Player
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return Team|null
+     */
+    public function getTeam(): ?Team
+    {
+        return $this->team;
+    }
+
+    /**
+     * @param Team $team
+     * @return $this
+     */
+    public function setTeam(Team $team): self
+    {
+        $this->team = $team;
+        if (!$team->getPlayers()->contains($this)) {
+            $team->addPlayer($this);
+        }
+        return $this;
     }
 }

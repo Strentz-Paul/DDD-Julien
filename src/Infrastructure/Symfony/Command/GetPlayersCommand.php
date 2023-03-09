@@ -32,10 +32,10 @@ final class GetPlayersCommand extends Command
         $table = new Table($output);
         $rows = array();
         foreach ($response->getPlayers() as $player) {
-            $rows[] = array($player->getId(), $player->getName());
+            $rows[] = array($player->getId(), $player->getName(), $player->getTeam());
         }
         $table
-            ->setHeaders(['Id', 'Name'])
+            ->setHeaders(['Id', 'Name', 'Team'])
             ->setRows($rows);
         $table->render();
         return Command::SUCCESS;
