@@ -3,7 +3,6 @@
 namespace App\Domain\Entity;
 
 use App\Domain\Exception\ValidationException;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Uid\Uuid;
 
 class MatchGame
