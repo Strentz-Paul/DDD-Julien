@@ -23,4 +23,12 @@ class TeamRepository extends ServiceEntityRepository implements \App\Domain\Repo
         $this->_em->persist($team);
         $this->_em->flush();
     }
+
+    /**
+     * @return Team[]
+     */
+    public function findAll(): array
+    {
+        return $this->findBy(array());
+    }
 }
